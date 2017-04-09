@@ -12,6 +12,17 @@ body {
     
 }
 
+a {
+    text-decoration:none;
+}
+
+footer a {
+    color: white;
+}
+
+.color-emphasis {
+    color: darkturquoise;
+}
 
 #user-query-field {
     height: 50px;
@@ -19,6 +30,8 @@ body {
     padding: 10px;
     float:left;
     box-sizing: border-box;
+    border-radius: 0;
+    color: lightgray;
 }
 
 #search-button {
@@ -40,10 +53,12 @@ body {
 
 
 #main-container {
+    position: relative;
     width: 100%;
     background-color: none;
-    height: auto;
+    min-height: 100vh;
     text-align: center;
+    overflow: hidden;
 }
 
 
@@ -51,23 +66,46 @@ body {
     margin: 0 auto;
     padding: 75px 0 0 0;
     width: 90%;
+    min-height: 90vh;
 }
 
-article.result:nth-of-type(even) {
+article.card:nth-of-type(even) {
     -webkit-transform: rotate(1deg);
     transform: rotate(1deg);
 }
 
-article.result:nth-of-type(odd) {
+article.card:nth-of-type(odd) {
     -webkit-transform: rotate(-1deg);
     transform: rotate(-1deg);
 }
 
-article.result {
+article.card {
     margin: 0 0 20px 0;
     padding: 10px;
     box-shadow: 0 3px 3px rgba(50,50,50,.5);
     background-color: white;
     text-align:left;
 }
+
+article#hello-card {
+    margin-top: calc(50vh - 40vh);
+    min-height: 45vh;
+    border-radius: 50%;
+    text-align: center;
+    padding: 20px;
+}
+
+
+footer {
+    padding: 20px;
+    min-height: 50px;
+    background-color: darkgray;
+    line-height: 30px;
+    
+}
+
+#footer-content {
+}
+
+
 
