@@ -1,6 +1,13 @@
 document.addEventListener("touchstart", function(){}, true);
 $(document).ready(function(){ 
+    
+    $("#user-query-field").click(function(){
+        $(this).attr("value","");  
+        $(this).val("");  
+    });
+    
     var currPage = $("#results").text();
+    
     var hasResults = function(){
         if( currPage === "") {
             console.log("Page is empty")
@@ -10,12 +17,16 @@ $(document).ready(function(){
             return true;
         }
     };
-    $("#user-query-field").click(function(){
-        $(this).attr("value","");  
-        $(this).val("");  
-    });
-    
-    var searchAndDisplay = function(){
+       
+    var showResults = function(){
+      
+        $("article.result.card").each(function(index){
+            $(this).delay(200*index).fadeIn("slow")
+        });
+
+    };
+     
+    var searchAndCreate = function(){
         var userQuery = $("#user-query-field").val();
         var jsonUrl= "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=opensearch&search=" + userQuery;
             $.getJSON(jsonUrl, function(data) {
@@ -25,22 +36,25 @@ $(document).ready(function(){
 
                 //print the result title    
                 console.log(data[1][i]);
-                $("#results").append('<article class="card"><h2>' + data[1][i] + '</h2><p>' + data[2][i] + '</p><p><a href="' + data[3][i] + '" target="_blank">View on Wikipedia</a> <i class="fa fa-external-link" aria-hidden="true"></i></p></article>')
+                $("#results").append('<article class="card result"><h2>' + data[1][i] + '</h2><p>' + data[2][i] + '</p><p><a href="' + data[3][i] + '" target="_blank">View on Wikipedia</a> <i class="fa fa-external-link" aria-hidden="true"></i></p></article>')
+                
+                showResults();
         
                 }
             }, "json"); 
+        
+        
     }
 
     $("button#search-button").click(function(){
         
         if(hasResults){
             $("#results").html("");
-            searchAndDisplay();
+            searchAndCreate();
         } else {
-            searchAndDisplay();
+            searchAndCreate();
         }
         
     }); // end buttun search on click
      
-    
 }); //end main function

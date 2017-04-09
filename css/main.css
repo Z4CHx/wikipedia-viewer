@@ -95,13 +95,16 @@ article#hello-card {
     padding: 20px;
 }
 
+article.result.card {
+    display: none;
+}
+
 
 footer {
     padding: 20px;
     min-height: 50px;
     background-color: darkgray;
-    line-height: 30px;
-    
+    line-height: 30px; 
 }
 
 #footer-content {
