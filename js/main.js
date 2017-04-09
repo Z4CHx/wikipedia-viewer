@@ -21,7 +21,7 @@ $(document).ready(function(){
     var showResults = function(){
       
         $("article.result.card").each(function(index){
-            $(this).delay(200*index).fadeIn("slow")
+            $(this).delay(200*index).fadeIn("slow");
         });
 
     };
@@ -46,15 +46,16 @@ $(document).ready(function(){
         
     }
 
-    $("button#search-button").click(function(){
-        
+    $("button#search-button").on('click',function(){
         if(hasResults){
-            $("#results").html("");
-            searchAndCreate();
+            $("article").fadeOut("50");
+            $("article").remove();
+            setTimeout(searchAndCreate, 200);
+            
         } else {
             searchAndCreate();
         }
         
-    }); // end buttun search on click
+    }); // end button search on click
      
 }); //end main function
