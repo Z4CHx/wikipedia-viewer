@@ -47,15 +47,25 @@ $(document).ready(function(){
     }
 
     $("button#search-button").on('click',function(){
+        
+       
+        $(this).addClass("flip animated").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+            $(this).removeClass("flip");
+        });
+     
+        
         if(hasResults){
-            $("article").fadeOut("50");
-            $("article").remove();
-            setTimeout(searchAndCreate, 200);
+            $("#results").html("");
+            searchAndCreate();
             
         } else {
             searchAndCreate();
         }
         
     }); // end button search on click
+    
+   
+    
+    
      
 }); //end main function
