@@ -25,7 +25,7 @@ $(document).ready(function(){
 
                 //print the result title    
                 console.log(data[1][i]);
-                $("#results").append('<article class="card"><h2>' + data[1][i] + '</h2><p>' + data[2][i] + '</p><p><a href="' + data[3][i] + '">View on Wikipedia</a> <i class="fa fa-external-link" aria-hidden="true"></i></p></article>')
+                $("#results").append('<article class="card"><h2>' + data[1][i] + '</h2><p>' + data[2][i] + '</p><p><a href="' + data[3][i] + '" target="_blank">View on Wikipedia</a> <i class="fa fa-external-link" aria-hidden="true"></i></p></article>')
         
                 }
             }, "json"); 
