@@ -95,10 +95,17 @@ article#hello-card {
     border-radius: 50%;
     text-align: center;
     padding: 20px;
+    overflow: hidden;
 }
 
 article.result.card {
     display: none;
+}
+
+#random-article {
+    display: block;
+    text-align: center;
+    margin-top: 35px;
 }
 
 
